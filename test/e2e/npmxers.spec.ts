@@ -31,6 +31,8 @@ test.describe('home page', () => {
   })
 
   test('does not scroll horizontally', async ({ page }) => {
+    await expect(page.locator('#contributors a').first()).toBeVisible()
+
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
     )
